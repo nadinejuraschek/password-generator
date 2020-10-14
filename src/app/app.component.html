@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Password Generator</h1>
+      <div class="field">
+        <label class="label">Enter Length</label>
+        <div class="control">
+          <input class="input" type="text" (input)="onChangeLength($event.target.value)" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" (change)="onChangeUseLowercaseLetters()" />
+            Use Lowercase Letters
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" (change)="onChangeUseUppercaseLetters()" />
+            Use Uppercase Letters
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" (change)="onChangeUseNumbers()" />
+            Use Numbers
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" (change)="onChangeUseSymbols()" />
+            Use Symbols
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button
+            class="button is-primary is-fullwidth"
+            [disabled]="!(length && includeLetters || includeLettersUp || includeNumbers || includeSymbols)"
+            (click)="onButtonClick()"
+          >
+            Generate!
+          </button>
+        </div>
+      </div>
+
+      <div class="box" *ngIf="password">
+        <label class="label">Your Password</label>
+        <div class="control">
+          <input class="input" type="text" [value]="password" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
